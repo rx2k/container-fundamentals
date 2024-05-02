@@ -14,6 +14,9 @@ RUN mkdir -p /run/nginx
 # Copy nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# Copy web content
+COPY web_content/ /var/www
+
 # Expose ports
 EXPOSE 80
 
