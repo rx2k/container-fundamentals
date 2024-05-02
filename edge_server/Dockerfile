@@ -11,6 +11,9 @@ RUN apk update && \
 # Create directories needed by nginx
 RUN mkdir -p /run/nginx
 
+# Copy nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Expose ports
 EXPOSE 80
 
