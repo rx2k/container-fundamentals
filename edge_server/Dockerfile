@@ -1,24 +1,13 @@
-# Use a lightweight base image
+#use ligthweight image
 FROM alpine:latest
 
-LABEL author="raphael verbuecheln"
-LABEL server_type="edge_server"
+LABEL org.opencontainers.image.authors="raphael@lutze.com"
+LABEL org.opencontainers.image.source=https://github.com/rx2k/container-fundamentals
+LABEL org.opencontainers.image.description="Containter Fundamentals - Static Website Image"
+LABEL org.opencontainers.image.licenses=APACHE2
 
-# Install nginx
-RUN apk update && \
-    apk add --no-cache nginx
-
-# Create directories needed by nginx
-RUN mkdir -p /run/nginx
-
-# Copy nginx configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Copy web content
+RUN apk update && apk add nginx 
+COPY config/nginx.conf /etc/nginx/
 COPY web_content/ /var/www
-
-# Expose ports
 EXPOSE 80
-
-# Start nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]

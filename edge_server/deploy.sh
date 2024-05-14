@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-docker run edge_server:v1 -p 8000:80
+docker run -d -p 8000:80 edge_server:v1
