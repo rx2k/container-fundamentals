@@ -1,4 +1,7 @@
 services:
   edge_server:
-    image: registry.containerleaks.com/ops_team/edge_server@sha256:8dad24af18e5f8eceac7af2ee7c37bc5136a7026c0f1d9b20eadea469589bdda
+    image: harbor.containerleaks.com/edge123test/edge_server@sha256:8edda842027e40d736c0c4f97566dd9a3a8e49bfe9d8a422d43eb2878e6ce36f
+    restart: always
+    ports: 
+      - "8000:80"
     
